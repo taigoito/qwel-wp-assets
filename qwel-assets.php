@@ -2,7 +2,7 @@
 /*
 Plugin Name: Discover Echizen Assets
 Description: This is an asset when using the theme "Discover Echizen".
-Version: 1.0
+Version: 1.2
 Requires PHP: 7.4
 Author: Taigo Ito
 Author URI: https://qwel.design/

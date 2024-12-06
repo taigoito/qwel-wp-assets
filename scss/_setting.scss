@@ -47,11 +47,12 @@ $breakpoint:           900px !default;
 // Back To Top
 $backBtnBg:            $primary;
 $backBtnColor:         $white;
-$backBtnHoverBg:       $primaryLight;
+$backBtnHoverBg:       $primaryDark;
 $backBtnHoverColor:    $white;
 
 // Drawer Menu
 $drawerAlwaysShown:    true !default;
+$drawerHiddenBp:       1200px;
 $drawerPad:            1rem !default;  // calc関数を使用するためCSS変数を避ける
 $drawerHeight:         64px !default;
 $drawerMenuDarkBg:     $primaryDark !default;
@@ -64,6 +65,7 @@ $preloaderHeight:      100vh !default;
 $preloaderBg:          $primaryDark !default;
 
 // Slider
+$sliderSizingBp:       $breakpoint;
 $sliderAspectRatio:    5 / 8 !default;
 $sliderHeights:        (
   sm:                    12rem,

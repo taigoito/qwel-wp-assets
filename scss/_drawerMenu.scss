@@ -18,7 +18,13 @@
   cursor: pointer;
 
   @if $drawerAlwaysShown == false {
-    @media (min-width: $breakpoint) {
+    @media (min-width: $drawerHiddenBp) {
+      display: none;
+    }
+  }
+
+  .category-art-project & {
+    @media (min-width: $drawerHiddenBp) {
       display: none;
     }
   }
@@ -72,7 +78,7 @@
   width: clamp(18rem, 40%, 24rem);
   height: 100%;
   margin: auto;
-  background-color: $mediumLight;
+  background-color: $light;
   text-align: center;
   transition: width ease-in-out .25s;
   

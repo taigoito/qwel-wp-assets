@@ -7,8 +7,8 @@
   bottom: 0;
   z-index: 1000;
   display: block;
-  width: calc(2rem + 64px);
-  height: calc(2rem + 64px);
+  width: calc(3rem + 48px);
+  height: calc(3rem + 48px);
   padding: 0;
   border: 0;
   background-color: transparent;
@@ -18,16 +18,16 @@
 }
 .backToTop .icon {
   position: absolute;
-  right: 1rem;
-  bottom: 1rem;
-  width: 64px;
-  height: 64px;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   background-color: var(--wp--preset--color--primary, #37bef0);
   color: var(--wp--preset--color--white, #ffffff);
 }
 .backToTop:hover .icon {
-  background-color: var(--wp--preset--color--primary-light, #d1f0fc);
+  background-color: var(--wp--preset--color--primary-dark, #18aada);
   color: var(--wp--preset--color--white, #ffffff);
 }
 
@@ -72,6 +72,11 @@
   outline: 0;
   cursor: pointer;
 }
+@media (min-width: 1200px) {
+  .category-art-project .drawer {
+    display: none;
+  }
+}
 .drawer__navicon.icon, .drawer__close.icon {
   position: absolute;
   top: 1rem;
@@ -114,7 +119,7 @@
   width: clamp(18rem, 40%, 24rem);
   height: 100%;
   margin: auto;
-  background-color: var(--wp--preset--color--medium-light, #999999);
+  background-color: var(--wp--preset--color--light, #cccccc);
   text-align: center;
   transition: width ease-in-out 0.25s;
 }
