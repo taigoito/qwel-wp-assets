@@ -31,7 +31,10 @@ new Preloader();
 
 // Responsive Color
 import ResponsiveColor from './_responsiveColor.js';
-new ResponsiveColor();
+const body = document.body;
+if (!body.classList.contains('page-id-6284')) {
+  new ResponsiveColor();
+}
 
 // Slider
 import Slider from './_slider.js';
