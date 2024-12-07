@@ -40,6 +40,7 @@ trait Shortcodes {
       if ( $day > 0 ) $title = $year . ' / ' . sprintf( '%02d', $month ) . ' / ' . sprintf( '%02d', $day );
       else if ( $month > 0 ) $title = $year . ' / ' . sprintf( '%02d', $month );
       else $title = $year;
+      $slug  = 'blog and news';
 
     // 投稿者アーカイブ
     } else if ( is_author() ) {
@@ -134,8 +135,7 @@ trait Shortcodes {
         if ( !empty( $terms )) {
           $term = $terms[0];
 
-          /* Custom */
-          if ( $term->slug !== 'feature' ) {
+          if ( $term->slug !== 'category' ) {
 
             // 親タームがあれば表示
             if ( $term->parent > 0 ) {
