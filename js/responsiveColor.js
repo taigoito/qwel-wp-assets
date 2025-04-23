@@ -1,12 +1,11 @@
 /**
  * Responsive Color
- * Author: Taigo Ito (https://qwel.design/)
- * Location: Fukui, Japan
- * @package Qwel-Assets
+ * このファイルは QWEL Project の一部です。
+ * Part of the QWEL Project © QWEL.DESIGN 2025
+ * Licensed under GPL v3 – see https://qwel.design/
  */
 
 export default class ResponsiveColor {
-
   constructor(elems) {
     // 要素を取得
     this._elems = elems || document.querySelectorAll('.responsiveColor');
@@ -26,9 +25,7 @@ export default class ResponsiveColor {
     // 初期状態をセットし、以後スクロールを監視
     this.change();
     window.addEventListener('scroll', () => this.change());
-
   }
-
 
   // セクションの背景を検出し .--change を付与
   change() {
@@ -39,13 +36,11 @@ export default class ResponsiveColor {
 
     this._elems.forEach((elem) => {
       if (colorYiq) {
-        elem.classList.add('--change');
+        elem.classList.add('responsiveColor--change');
       } else {
-        elem.classList.remove('--change');
+        elem.classList.remove('responsiveColor--change');
       }
-
     });
-
   }
 
   // 要素の背景色を検出し、濃いか薄いか判定
@@ -61,7 +56,6 @@ export default class ResponsiveColor {
     const b = parseInt(colors[2], 16);
 
     return ((((r * 299) + (g * 587) + (b * 114)) / 1000) < 300) ? true : false;
-
   }
 
   // header, main, footerの子要素から、背景を取得するセクションの配列を作成
@@ -88,7 +82,6 @@ export default class ResponsiveColor {
     sections.push(footer);
 
     return sections;
-
   }
 
   // セクションの配列から、現在のセクションを取得
@@ -105,11 +98,7 @@ export default class ResponsiveColor {
         current = section;
         min = clientRectTop;
       }
-
     });
-
     return current;
-
   }
-
 }

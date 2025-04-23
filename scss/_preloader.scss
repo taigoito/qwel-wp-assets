@@ -1,8 +1,15 @@
 /**
- * Preloader
+ * Component - Preloader
  */
 
-@mixin make-spinner-bars($width: $spinnerWidth, $spinnerBarsCount: $spinnerBarsCount, $spinnerBarsBg: $spinnerBarsBg) {
+// Preloader
+$spinner-width:      48px !default;
+$spinner-bars-count: 12 !default;
+$spinner-bars-bg:    $body-bg !default; // rgba関数を使用するため16進数指定
+$preloader-height:   100vh !default;
+$preloader-bg:       map-get($theme-colors, $theme-accent) !default;
+
+@mixin make-spinner-bars($width: $spinner-width, $spinner-bars-count: $spinner-bars-count, $spinner-bars-bg: $spinner-bars-bg) {
   & > span {
     position: absolute;
     top: $width * 9 / 24;
@@ -12,10 +19,10 @@
     height: $width * 6 / 24;
     border-radius: $width * 1 / 24;
   
-    @for $i from 1 through $spinnerBarsCount {
+    @for $i from 1 through $spinner-bars-count {
       &:nth-child(#{$i}) {
-        background-color: rgba($spinnerBarsBg, $i / ($spinnerBarsCount + 2));
-        transform: rotate(#{($i - 1) * 360 / $spinnerBarsCount}deg) translate(0, #{$width * 8 / 24})
+        background-color: rgba($spinner-bars-bg, $i / ($spinner-bars-count + 2));
+        transform: rotate(#{($i - 1) * 360 / $spinner-bars-count}deg) translate(0, #{$width * 8 / 24})
       }
     }
   }
@@ -30,12 +37,12 @@
     bottom: 0;
     z-index: 900; // header: 1000 より背面
     width: 100%;
-    height: $preloaderHeight;
-    background: $preloaderBg;
+    height: $preloader-height;
+    background: $preloader-bg;
     opacity: 1;
-    transition: opacity ease-in-out .5s;
+    transition: opacity 0.5s linear;
 
-    &:not(.--show) {
+    &:not(.preloader__overlay--show) {
       opacity: 0;
     }
   }
@@ -57,8 +64,8 @@
     left: 0;
     right: 0;
     bottom: 0;
-    width: $spinnerWidth;
-    height: $spinnerWidth;
+    width: $spinner-width;
+    height: $spinner-width;
     margin: auto;
     @include make-spinner-bars;
   }

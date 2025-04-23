@@ -1,32 +1,124 @@
 /**
- * Icon
+ * Component - Icon
  */
+
+$icon-bg:          theme-color($theme-accent) !default;
+$icon-color:       color-yiq($theme-accent) !default;
+$icon-hover-bg:    color-change($theme-accent) !default;
+$icon-hover-color: color-yiq($theme-accent, true) !default;
+$icon-size-sm:     1.5rem !default;
+$icon-size-md:     2.25rem !default;
+$icon-size-lg:     3rem !default;
+
+@mixin use-icon($bg: $icon-bg, $color: $icon-color, $hover-bg: $icon-hover-bg, $hover-color: $icon-hover-color, $rounded: 50%) {
+  & > .icon {
+    border-radius: $rounded;
+    background-color: $bg;
+    transition: background-color 0.25s ease;
+
+    & > .icon__span {
+      &, &::before, &::after {
+        border-color: $color;
+      }
+    }
+  }
+
+  &:hover > .icon {
+    background-color: $hover-bg;
+
+    & > .icon__span {
+      &, &::before, &::after {
+        border-color: $hover-color;
+      }
+    }
+  }
+}
 
 .icon {
   position: relative;
   display: inline-block;
-  width: 1.5rem;
-  height: 1.5rem;
+  width: $icon-size-sm;
+  height: $icon-size-sm;
   overflow: hidden;
   fill: currentColor;
-}
 
-.icon__cnt {
-  width: 100%;
-  height: 100%;
-  background: inherit;
-  fill: inherit;
-  pointer-events: none;
-  transform: translateX(0);
-  -ms-transform: translate(0.5px, -0.3px);
-}
+  &--md {
+    width: $icon-size-md;
+    height: $icon-size-md;
+  }
 
-.icon--m {
-  width: 3rem;
-  height: 3rem;
-}
+  &--lg {
+    width: $icon-size-lg;
+    height: $icon-size-lg;
+  }
 
-.icon--l {
-  width: 4.5rem;
-  height: 4.5rem;
+  &__span {
+    position: relative;
+    display: block;
+    border-width: 0;
+    border-style: solid;
+    border-color: theme-color("lightest");
+    transition: border-color 0.25s ease;
+
+    .icon--menu & {
+      width: 60%;
+      height: 20%;
+      margin: 40% 20%;
+      border-top-width: 2px;
+      border-bottom-width: 2px;
+    }
+
+    .icon--close & {
+      &::before, &::after {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 60%;
+        height: 4%;
+        margin: 48% 20%;
+        border: 1px solid theme-color("light");
+        transform: rotate(-45deg);
+      }
+
+      &::after {
+        transform: rotate(45deg);
+      }
+    }
+
+    .icon--chevron-up & {
+      width: 30%;
+      height: 30%;
+      margin: 35%;
+      border-top-width: 2px;
+      border-left-width: 2px;
+      transform: rotate(45deg) translate(10%, 10%);
+    }
+
+    .icon--chevron-down & {
+      width: 30%;
+      height: 30%;
+      margin: 35%;
+      border-right-width: 2px;
+      border-bottom-width: 2px;
+      transform: rotate(45deg) translate(-10%, -10%);
+    }
+
+    .icon--chevron-left & {
+      width: 30%;
+      height: 30%;
+      margin: 35%;
+      border-left-width: 2px;
+      border-bottom-width: 2px;
+      transform: rotate(45deg) translate(10%, -10%);
+    }
+
+    .icon--chevron-right & {
+      width: 30%;
+      height: 30%;
+      margin: 35%;
+      border-top-width: 2px;
+      border-right-width: 2px;
+      transform: rotate(45deg) translate(-10%, 10%);
+    }
+  }
 }

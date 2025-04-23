@@ -1,29 +1,53 @@
 /**
- * Cover
+ * Component - Cover
  */
 
+$cover-nav-color:        theme-color("lighter") !default;
+$cover-nav-active-color: theme-color($theme-accent) !default;
+
+
 .cover {
-  &__image {
-    // Fader用クラス
-    // 画像の数とパスを設定
-    @for $i from 1 through 4 {
-      &.--num_#{$i} {
-        background-image: url("./assets/img0#{$i}.jpg");
+  &__inner {
+    // Preloader用クラス
+    .preloader & {
+      opacity: 0; // Preloader稼働前は透過
+
+      .loaded & {
+        opacity: 1; // イメージを読み込んだら透過を解除
       }
     }
-    
-    &.--fade {
+  }
+
+  &__image {
+    &--fade {
       opacity: 0;
       transition: none;
     }
   }
 
-  // Preloader用クラス
-  .preloader & {
-    opacity: 0; // Preloader稼働前は透過
+  &__nav {
+    list-style: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    height: 1rem;
+    margin: space() auto;
+    padding: 0;
+  }
 
-    .--loaded & {
-      opacity: 1; // イメージを読み込んだら透過を解除
+  &__navItem {
+    width: .5rem;
+    height: .5rem;
+    margin: space();
+    border-radius: 50%;
+    background-color: $cover-nav-active-color;
+    cursor: pointer;
+
+    &:not(.cover__navItem--current) {
+      background-color: $cover-nav-color;
     }
   }
 }

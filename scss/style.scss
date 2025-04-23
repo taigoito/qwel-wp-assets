@@ -1,12 +1,14 @@
 @charset "utf-8";
 
-@import "setting";
+@import "settings/colorSystem";
+@import "settings/gridSystem";
+@import "settings/typography";
+@import "icon";
 @import "backToTop";
 @import "breadcrumb";
 @import "cover";
 @import "drawerMenu";
 @import "embed";
-@import "icon";
 @import "preloader";
 @import "responsiveColor";
 @import "slider";

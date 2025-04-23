@@ -1,8 +1,8 @@
 <?php
 /*
-Plugin Name: Qwel Assets Beta
+Plugin Name: Qwel WP Assets
 Description: This is an asset when using the theme "Qwel".
-Version: 1.0
+Version: 2.0
 Requires PHP: 7.4
 Author: Taigo Ito
 Author URI: https://qwel.design/
@@ -17,8 +17,8 @@ defined( 'ABSPATH' ) || exit;
 /*
  * プラグインのパス, URI
  */
-define( 'QWEL_ASSETS_DIR', WP_PLUGIN_DIR . '/qwel-assets/' );
-define( 'QWEL_ASSETS_URI', WP_PLUGIN_URL . '/qwel-assets/' );
+define( 'QWEL_WP_ASSETS_DIR', WP_PLUGIN_DIR . '/qwel-wp-assets/' );
+define( 'QWEL_WP_ASSETS_URI', WP_PLUGIN_URL . '/qwel-wp-assets/' );
 
 
 /*
@@ -26,18 +26,18 @@ define( 'QWEL_ASSETS_URI', WP_PLUGIN_URL . '/qwel-assets/' );
  */
 spl_autoload_register(
 	function( $classname ) {
-		if ( strpos( $classname, 'Qwel_Assets' ) === false ) return;
+		if ( strpos( $classname, 'Qwel_WP_Assets' ) === false ) return;
 		$classname = str_replace( '\\', '/', $classname );
-		$classname = str_replace( 'Qwel_Assets/', '', $classname );
-		$file      = QWEL_ASSETS_DIR . '/classes/' . $classname . '.php';
+		$classname = str_replace( 'Qwel_WP_Assets/', '', $classname );
+		$file      = QWEL_WP_ASSETS_DIR . '/classes/' . $classname . '.php';
 		if ( file_exists( $file ) ) {
 			require $file;
 		}
 	}
 );
 
-class Qwel_Assets {
-  use \Qwel_Assets\Shortcodes;
+class Qwel_WP_Assets {
+  use \Qwel_WP_Assets\Shortcodes;
 		
 	public function __construct() {
     // ブロックスタイルを追加 (エディター)
@@ -95,4 +95,4 @@ class Qwel_Assets {
 
 }
 
-new Qwel_Assets();
+new Qwel_WP_Assets();

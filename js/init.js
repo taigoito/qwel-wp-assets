@@ -6,33 +6,29 @@
  */
 
 // Back To Top
-import BackToTop from './_backToTop.js';
+import BackToTop from './backToTop.js';
 new BackToTop();
 
 // Drawer Menu
-import DrawerMenu from './_drawerMenu.js';
+import DrawerMenu from './drawerMenu.js';
 new DrawerMenu();
 
 // Embed
-import Embed from './_embed.js';
+import Embed from './embed.js';
 new Embed();
 
-// Evil Icons
-import EvilIcons from './_evilIcons.js';
-new EvilIcons();
-
 // Fader
-import Fader from './_fader.js';
+import Fader from './fader.js';
 new Fader();
 
 // Preloader
-import Preloader from './_preloader.js';
+import Preloader from './preloader.js';
 new Preloader();
 
 // Responsive Color
-import ResponsiveColor from './_responsiveColor.js';
+import ResponsiveColor from './responsiveColor.js';
 new ResponsiveColor();
 
 // Slider
-import Slider from './_slider.js';
+import Slider from './slider.js';
 new Slider();

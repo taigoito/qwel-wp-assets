@@ -1,5 +1,5 @@
 /**
- * Embed
+ * Component - Embedded
  */
 
 .embed {
@@ -12,16 +12,16 @@
     height: 100%;
     align-items: center;
     justify-content: center;
-    background: rgba(0, 0, 0, .3);
-    color: $white;
-    transition: opacity linear .25s;
+    background: rgba(map-get($theme-colors, "darkest"), 0.3);
+    color: $body-bg;
+    transition: opacity 0.25s linear;
 
-    &:not(.active) {
+    &:not(.embed__cover--active) {
       opacity: 0;
     }
   }
 
   &__info {
-    font-size: var(--wp--preset--font-size--small);
+    font-size: font-size("small")
   }
 }

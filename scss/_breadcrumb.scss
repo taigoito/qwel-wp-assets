@@ -5,9 +5,9 @@
 .breadcrumb {  
   position: relative;
   width: 100%;
-  margin: 0 auto space(3);
-  padding: space(3);
-  font-size: $h6FontSize;
+  margin: 0 auto space("medium");
+  padding: space("medium");
+  font-size: font-size("small");
   line-height: var(--wp--custom--line-height--large);
   letter-spacing:  0.04rem;
 

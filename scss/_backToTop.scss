@@ -2,34 +2,36 @@
  * Component - Back To Top
  */
 
+$back-to-top-bg:           $icon-bg !default;
+$back-to-top-color:        $icon-color !default;
+$back-to-top-hover-bg:     $icon-hover-bg !default;
+$back-to-top-hover-color:  $icon-hover-color !default;
+$back-to-top-pad:          space() !default;
+$back-to-top-height:       3rem !default;
+
 .backToTop {
   position: fixed;
-  right: 0;
-  bottom: 0;
+  right: $back-to-top-pad;
+  bottom: $back-to-top-pad;
   z-index: 1000;
   display: block;
-  width: calc(#{$drawerPad * 2} + #{$drawerHeight});
-  height: calc(#{$drawerPad * 2} + #{$drawerHeight});
+  width: $back-to-top-height;
+  height: $back-to-top-height;
   padding: 0; // Reset
-  border: 0;
-  background-color: transparent;
+  opacity: 0;
+  transform: translateY(1rem) rotateY(-180deg);
+  transition: all 0.5s ease;
   text-align: center;
   outline: 0;
-  cursor: pointer;
+  cursor: default;
+  pointer-events: none;
 
-  .icon {
-    position: absolute;
-    right: $drawerPad;
-    bottom: $drawerPad;
-    width: $drawerHeight;
-    height: $drawerHeight;
-    border-radius: 50%;
-    background-color: $backBtnBg;
-    color: $backBtnColor;
+  &--active {
+    opacity: 1;
+    transform: translateY(0) rotateY(0);
+    cursor: pointer;
+    pointer-events: auto;
   }
 
-  &:hover .icon {
-    background-color: $backBtnHoverBg;
-    color: $backBtnHoverColor;
-  }
+  @include use-icon($back-to-top-bg, $back-to-top-color, $back-to-top-hover-bg, $back-to-top-hover-color);
 }
